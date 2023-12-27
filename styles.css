@@ -64,20 +64,6 @@ body {
   border: 0.1rem solid #aaa;
   border-radius: 0.5rem;
 }
-.btn {
-  margin-top: 1rem;
-  display: inline-block;
-  padding: 1rem 2.8rem;
-  padding-right: 3rem;
-  background: linear-gradient(130deg, var(--blue) 93%, transparent 90%);
-  color: #000;
-  cursor: pointer;
-  font-size: 1.7rem;
-  font-weight: bold;
-}
-.btn:hover {
-  transform: scale(1.1);
-}
 
 .header {
   position: fixed;
@@ -171,6 +157,7 @@ body {
   align-items: center;
   justify-content: center;
   object-fit: fill;
+  cursor: pointer;
 }
 
 #about {
@@ -211,53 +198,16 @@ body {
   font-size: 24px;
 }
 
-
 #photos .paragrafo {
   max-width: 950px;
   margin: 0 auto;
 }
 
-#contact {
+#schedule {
   display: flex;
   align-items: center;
   gap: 64px;
   padding: 64px 80px;
-}
-
-.duvida {
-  position: relative;
-}
-
-.duvida h3 {
-  border: 2px solid #ff725e;
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 24px;
-}
-
-.duvida img {
-  position: absolute;
-  top: 32px;
-  right: 24px;
-}
-
-.duvida .paragrafo {
-  border-right: 1px solid #ff725e;
-  border-bottom: 1px solid #ff725e;
-  border-left: 1px solid #ff725e;
-  border-radius: 0 0 8px 8px;
-  margin-top: -8px;
-  padding: 0 24px;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: 0.2s;
-}
-
-.duvida.ativa .paragrafo {
-  height: fit-content;
-  opacity: 1;
-  padding: 24px;
 }
 
 footer {
@@ -396,12 +346,14 @@ footer p a {
   display: block;
 }
 
-#localizacao h2 {
-  background-color: #263138;
-  text-align: center;
-  padding: 24px;
-  color: #ffffff;
-  font-size: 24px;
+#location {
+  padding: 64px 80px;
+}
+
+#location iframe {
+  width: 90%;
+  height: 450px;
+  margin-left: 4rem;
 }
 
 .locale {
@@ -411,48 +363,41 @@ footer p a {
   justify-content: center;
 }
 
-#contact h2 {
-  background-color: #263138;
-  text-align: center;
-  padding: 24px;
-  color: #ffffff;
-  font-size: 24px;
-}
-
 @media screen and (max-width: 576px) {
   #menu-btn {
     display: inline-block;
     font-size: 24px;
   }
-
+  
   #menu-btn.fa-times {
     transform: rotate(180deg);
   }
-
+  
   .header {
     padding: 0.7rem;
+    position:fixed;
   }
-
+  
   .header .navbar {
     position: absolute;
-    top: 99%;
+    top: 100%;
     left: 0;
     right: 0;
     background: #000;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
-
+  
   .header .navbar.active {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
-
+  
   .header .navbar a {
     display: block;
     font-size: 1.7rem;
   }
-
+  
   .heading span {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--white);
     background: #000;
     padding: 0.5rem 1.5rem;
@@ -467,31 +412,25 @@ footer p a {
     padding: 20px;
     padding-top: 2rem;
   }
-
+  
   .home-text {
     margin-top: 40px;
-    margin-bottom: 5px; /* Add spacing between text and button */
-  }
-
-  .home-img {
-    width: 90%;
-    height: 70%;
-    margin-right: 11rem;
   }
   
-  .home-image {
-    border-radius: 40px;
-    transform: scale(0.7);
-    object-fit: cover;
+  .home-img {
+    width: 100%;
+    height: 100%;
   }
-  .home-image2 {
-    border-radius: 40px;
-    transform: scale(0.7);
-    object-fit: fill;
+
+  .home-img img {
+    max-width: 100%; /* Garante que as imagens não ultrapassem a largura do contêiner */
+    height: auto; /* Mantém a proporção original da imagem */
+    display: block; /* Remove espaço extra abaixo das imagens em alguns navegadores */
+    margin: 0 auto; /* Centraliza as imagens dentro de seu contêiner */
   }
 
   #about {
-    margin-top: 20rem;
+    margin-top: 28rem;
     padding: 12px;
     display: flex;
     flex-direction: column; /* Stack child elements vertically */
@@ -508,7 +447,7 @@ footer p a {
     padding: 20px;
     text-align: center; /* Center the content in the photos section */
   }
-  
+
   #photos h2 {
     text-align: center;
   }
@@ -523,7 +462,7 @@ footer p a {
     width: 100%;
     overflow: hidden;
   }
-  
+
   .carousel-button {
     position: absolute;
     top: 50%;
@@ -535,15 +474,15 @@ footer p a {
     cursor: pointer;
     font-weight: bold;
   }
-  
+
   .prev {
     left: 10px;
   }
-  
+
   .next {
     right: 10px;
   }
-  
+
   .carousel ul {
     display: flex;
     transition: transform 0.5s ease;
@@ -552,13 +491,13 @@ footer p a {
     list-style: none;
     flex-direction: column; /* Stack images vertically on mobile */
   }
-  
+
   .slide {
     flex: 0 0 100%;
     box-sizing: border-box;
     margin-bottom: 10px; /* Add margin between images on mobile */
   }
-  
+
   .slide img {
     width: 100%;
     height: 100%;
@@ -566,9 +505,9 @@ footer p a {
     object-fit: cover; /* Ensure the image covers the entire container */
   }
 
-  #localizacao,
-  #contact,
-  #footer {
+  #location,
+  #schedule,
+  #contact {
     padding: 20px;
   }
 
@@ -579,56 +518,31 @@ footer p a {
   .carousel-button {
     font-size: 1.5rem;
   }
-  #contact {
+  #schedule {
     padding: 20px;
     display: flex;
     margin-bottom: 20px;
   }
-  #contact h2 {
-    margin-bottom: 20px;
-  }
-  .image-contact {
-    padding-left: 20px;
-    width: 90%;
-    height: 100%;
-    transform: scale(1.2);
+
+  .image-schedule {
+    width: 100%;
+    height: 90%;
     object-fit: fill;
   }
 
-  .contact-form {
-    width: 100%; /* Make form container full-width */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  #location iframe {
+    width: 90%;
+    margin-left: 1.2rem;
+    margin-top: 2rem;
   }
 
-  #localizacao .locale iframe {
-    width: 400%;
-    height: 350px;    
+  #location .video {
+    width: 100%;
+    height: 50%;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
   }
 
-  form {
-    max-width: 100%; /* Adjust form width to fill the container */
-  }
-
-  form p {
-    text-align: left; /* Adjust text alignment in form */
-  }
-
-  form input[type="text"] {
-    width: 100%; /* Make text input fields full-width */
-    margin-bottom: 10px; /* Add spacing between input fields */
-
-  }
-
-  form input[type="submit"],
-  form input[type="reset"] {
-    width: 48%; /* Make submit and reset buttons take up less than full width */
-    margin-right: 2%; /* Add spacing between buttons */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   footer {
     flex-direction: column; /* Stack child elements vertically */
     text-align: center;
